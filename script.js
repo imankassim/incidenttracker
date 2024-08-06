@@ -1,4 +1,4 @@
-const systems = ["Bob", "nia", "Sim", "gar", "her", "Sid", "re2", "eacy", "75hk", "ash3", "ppp2", "qur"];
+const systems = ["Bob", "nia", "sim", "gar", "her", "Sid", "re2", "eacy", "75hk", "ash3", "ppp2", "qur"];
 const gridContainer = document.getElementById('grid-container');
 document.addEventListener('DOMContentLoaded', () => {
    fetch('data.xlsx')
@@ -34,7 +34,7 @@ function displayGrid(incidents) {
        gridItem.innerHTML = `
 <h2>${system}</h2>
 <img src="${smileyFace}" alt="Smiley Face" class="smiley-face">
-<div class="counter">Days since last incident: ${daysSince}</div>
+<div class="counter">${daysSince}</div>
 <div class="last-incident">Last incident: ${lastIncidentDate}</div>
        `;
        gridContainer.appendChild(gridItem);
