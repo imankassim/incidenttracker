@@ -16,7 +16,7 @@ function displayGrid(incidents) {
        const incident = incidents.find(incident => incident['System Name'] === system);
        let daysSince = 'No incidents';
        let lastIncidentDate = 'N/A';
-       let smileyFace = 'green-smiley.jpg';
+       let smileyFace = 'green-smiley.png';
        if (incident) {
            const incidentDate = new Date(incident['Date']);
            const diffTime = currentDate - incidentDate;
@@ -24,9 +24,9 @@ function displayGrid(incidents) {
            daysSince = `${diffDays} days`;
            lastIncidentDate = incidentDate.toISOString().split('T')[0];
            if (diffDays <= 14) {
-               smileyFace = 'red-smiley.jpg';
+               smileyFace = 'red-smiley.png';
            } else if (diffDays <= 30) {
-               smileyFace = 'amber-smiley.jpg';
+               smileyFace = 'amber-smiley.png';
            }
        }
        const gridItem = document.createElement('div');
