@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+ }
+ h1 {
+    margin-bottom: 20px;
+ }
+ .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    padding: 20px;
+ }
+ .grid-item {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+ }
+ .smiley-face {
+    width: 70%;
+ }
+ .counter, .last-incident {
+    margin-top: 10px;
+ }
