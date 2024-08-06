@@ -3,36 +3,36 @@ body {
    text-align: center;
    margin: 0;
    padding: 0;
-   height: 100vh;
+   overflow: hidden; /* Prevent scrolling */
+   height: 100vh; /* Full viewport height */
 }
 h1 {
    margin: 10px 0;
-   font-size: 1.5em;
+   font-size: 1.5em; /* Adjust header size if necessary */
 }
 .grid-container {
    display: grid;
    grid-template-columns: repeat(4, 1fr);
    grid-template-rows: repeat(3, 1fr);
-   gap: 5px; /* Reduce gap between grid items */
-   padding: 5px; /* Reduce padding around the grid */
-   height: calc(100vh - 50px); /* Adjust height to account for header */
+   gap: 5px;
+   padding: 10px;
+   height: calc(100vh - 40px); /* Subtract header height */
    box-sizing: border-box;
 }
 .grid-item {
    border: 1px solid #ccc;
-   border-radius: 5px;
-   padding: 5px; /* Reduce padding inside grid items */
+   border-radius: 8px;
+   padding: 5px;
    text-align: center;
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   font-size: 0.8em; /* Reduce font size */
 }
 .smiley-face {
-   width: 40%; /* Further reduce the smiley face size */
+   width: 30%; /* Further reduce the smiley face size */
 }
 .counter, .last-incident {
-   margin-top: 2px; /* Further reduce the margin */
-   font-size: 0.7em; /* Further reduce the font size */
+   margin-top: 5px; /* Restore margin size */
+   font-size: 1em; /* Restore font size */
 }
