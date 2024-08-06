@@ -1,26 +1,36 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
- }
- h1 {
-    margin-bottom: 20px;
- }
- .grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 10px;
-    padding: 20px;
- }
- .grid-item {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
- }
- .smiley-face {
-    width: 70%;
- }
- .counter, .last-incident {
-    margin-top: 10px;
- }
+   font-family: Arial, sans-serif;
+   text-align: center;
+   margin: 0;
+   padding: 0;
+   overflow: hidden; /* Prevent scrolling */
+}
+h1 {
+   margin: 20px 0;
+}
+.grid-container {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   grid-template-rows: repeat(3, 1fr);
+   gap: 10px;
+   padding: 20px;
+   height: calc(100vh - 60px); /* Subtract header height */
+   box-sizing: border-box;
+}
+.grid-item {
+   border: 1px solid #ccc;
+   border-radius: 8px;
+   padding: 10px;
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.smiley-face {
+   width: 50%; /* Reduce the smiley face size */
+}
+.counter, .last-incident {
+   margin-top: 5px; /* Reduce the margin */
+   font-size: 0.8em; /* Reduce the font size */
+}
