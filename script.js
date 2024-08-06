@@ -18,7 +18,8 @@ function displayGrid(incidents) {
        let lastIncidentDate = 'N/A';
        let smileyFace = 'green-smiley.jpg';
        if (incident) {
-           const incidentDate = new Date(incident['Date']);
+           // Correct date parsing using XLSX library utility functions
+           const incidentDate = parseExcelDate(incident['Date']);
            const diffTime = currentDate - incidentDate;
            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
            daysSince = `${diffDays} days`;
@@ -39,4 +40,11 @@ function displayGrid(incidents) {
        `;
        gridContainer.appendChild(gridItem);
    });
+}
+function parseExcelDate(excelDate) {
+   // Excel serial date format
+   const excelEpoch = new Date(1899, 11, 30); // Excel's epoch date
+   const date = new Date(excelEpoch);
+   date.setDate(date.getDate() + excelDate - 1);
+   return date;
 }
