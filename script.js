@@ -1,4 +1,4 @@
-const systems = ["Bob", "nia", "Sim", "gar", "her", "Sid", "re2", "eacy", "75hk", "ash3", "ppp2", "qur"];
+const systems = ["Bob", "nia", "sim", "gar", "her", "Sid", "re2", "eacy", "75hk", "ash3", "ppp2", "qur"];
 const gridContainer = document.getElementById('grid-container');
 document.addEventListener('DOMContentLoaded', () => {
    fetch('data.xlsx')
