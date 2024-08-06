@@ -34,7 +34,7 @@ function displayGrid(incidents) {
        gridItem.innerHTML = `
 <h2>${system}</h2>
 <img src="${smileyFace}" alt="Smiley Face" class="smiley-face">
-<div class="counter">${daysSince}</div>
+<div class="counter">Days since last incident: ${daysSince}</div>
 <div class="last-incident">Last incident: ${lastIncidentDate}</div>
        `;
        gridContainer.appendChild(gridItem);
