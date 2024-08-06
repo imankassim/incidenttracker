@@ -4,33 +4,36 @@ body {
    margin: 0;
    padding: 0;
    overflow: hidden; /* Prevent scrolling */
+   height: 100vh;
 }
 h1 {
-   margin: 20px 0;
+   margin: 10px 0;
+   font-size: 1.5em;
 }
 .grid-container {
    display: grid;
    grid-template-columns: repeat(4, 1fr);
    grid-template-rows: repeat(3, 1fr);
-   gap: 10px;
-   padding: 20px;
-   height: calc(100vh - 60px); /* Subtract header height */
+   gap: 5px; /* Reduce gap between grid items */
+   padding: 5px; /* Reduce padding around the grid */
+   height: calc(100vh - 50px); /* Adjust height to account for header */
    box-sizing: border-box;
 }
 .grid-item {
    border: 1px solid #ccc;
-   border-radius: 8px;
-   padding: 10px;
+   border-radius: 5px;
+   padding: 5px; /* Reduce padding inside grid items */
    text-align: center;
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
+   font-size: 0.8em; /* Reduce font size */
 }
 .smiley-face {
-   width: 50%; /* Reduce the smiley face size */
+   width: 40%; /* Further reduce the smiley face size */
 }
 .counter, .last-incident {
-   margin-top: 5px; /* Reduce the margin */
-   font-size: 0.8em; /* Reduce the font size */
+   margin-top: 2px; /* Further reduce the margin */
+   font-size: 0.7em; /* Further reduce the font size */
 }
