@@ -16,18 +16,17 @@ function displayGrid(incidents) {
        const incident = incidents.find(incident => incident['System Name'] === system);
        let daysSince = 'No incidents';
        let lastIncidentDate = 'N/A';
-       let smileyFace = 'green-smiley.png';
+       let smileyFace = 'green-smiley.jpg';
        if (incident) {
-           // Parse the date correctly
-           const incidentDate = parseDate(incident['Date']);
+           const incidentDate = new Date(incident['Date']);
            const diffTime = currentDate - incidentDate;
            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
            daysSince = `${diffDays} days`;
            lastIncidentDate = incidentDate.toISOString().split('T')[0];
            if (diffDays <= 14) {
-               smileyFace = 'red-smiley.png';
+               smileyFace = 'red-smiley.jpg';
            } else if (diffDays <= 30) {
-               smileyFace = 'amber-smiley.png';
+               smileyFace = 'amber-smiley.jpg';
            }
        }
        const gridItem = document.createElement('div');
@@ -40,17 +39,4 @@ function displayGrid(incidents) {
        `;
        gridContainer.appendChild(gridItem);
    });
-}
-function parseDate(dateValue) {
-   if (typeof dateValue === 'string') {
-       // If date is in string format (e.g., "2024-08-05")
-       return new Date(dateValue);
-   } else if (typeof dateValue === 'number') {
-       // If date is in Excel serial number format
-       const excelEpoch = new Date(Date.UTC(1899, 11, 30));
-       const date = new Date(excelEpoch);
-       date.setUTCDate(excelEpoch.getUTCDate() + dateValue);
-       return date;
-   }
-   return new Date(); // Fallback to current date if parsing fails
 }
