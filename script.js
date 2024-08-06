@@ -1,4 +1,4 @@
-const systems = ["Bob", "nia", "sim", "gar", "her", "Sid", "re2", "eacy", "75hk", "ash3", "ppp2", "qur"];
+const systems = ["Nokia AMS", "Adva FSP-NM", "Tyco EvoTAM", "Ribbon (ECI) EOPS", "Huawei U2000", "Adva ENC", "Huawei NCE Fan", "EXFO FMS", "Adtran MCP", "Viavi ONMSi", "Viavi Fusion", "LTS-Tollgrade"];
 const gridContainer = document.getElementById('grid-container');
 document.addEventListener('DOMContentLoaded', () => {
    fetch('data.xlsx')
