@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
    fetch('data.xlsx')
        .then(response => response.arrayBuffer())
        .then(data => {
-           const workbook = XLSX.read(data, {type: 'array'});
+           const workbook = XLSX.read(data, { type: 'array' });
            const sheet = workbook.Sheets[workbook.SheetNames[0]];
-           const incidents = XLSX.utils.sheet_to_json(sheet);
+           const incidents = XLSX.utils.sheet_to_json(sheet, { raw: true });
            displayGrid(incidents);
        });
 });
@@ -18,8 +18,8 @@ function displayGrid(incidents) {
        let lastIncidentDate = 'N/A';
        let smileyFace = 'green-smiley.jpg';
        if (incident) {
-           // Correct date parsing using XLSX library utility functions
-           const incidentDate = parseExcelDate(incident['Date']);
+           // Parse the date correctly
+           const incidentDate = parseDate(incident['Date']);
            const diffTime = currentDate - incidentDate;
            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
            daysSince = `${diffDays} days`;
@@ -41,10 +41,16 @@ function displayGrid(incidents) {
        gridContainer.appendChild(gridItem);
    });
 }
-function parseExcelDate(excelDate) {
-   // Excel serial date format
-   const excelEpoch = new Date(1899, 11, 30); // Excel's epoch date
-   const date = new Date(excelEpoch);
-   date.setDate(date.getDate() + excelDate - 1);
-   return date;
+function parseDate(dateValue) {
+   if (typeof dateValue === 'string') {
+       // If date is in string format (e.g., "2024-08-05")
+       return new Date(dateValue);
+   } else if (typeof dateValue === 'number') {
+       // If date is in Excel serial number format
+       const excelEpoch = new Date(Date.UTC(1899, 11, 30));
+       const date = new Date(excelEpoch);
+       date.setUTCDate(excelEpoch.getUTCDate() + dateValue);
+       return date;
+   }
+   return new Date(); // Fallback to current date if parsing fails
 }
