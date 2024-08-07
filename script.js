@@ -1,4 +1,4 @@
-const systems = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+const systems = ["System 1", "System 2", "System 3", "System 4", "System 5", "System 6", "System 7", "System 8", "System 9", "System 10", "System 11", "System 12"];
 const gridContainer = document.getElementById('grid-container');
 document.addEventListener('DOMContentLoaded', () => {
    fetch('data.xlsx')
